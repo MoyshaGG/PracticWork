@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/alcoholFragment">
+
+    <fragment
+        android:id="@+id/alcoholFragment"
+        android:name="com.triare.cocktalesproject.fragments.AlcoFragment"
+        android:label="AlcoholFragment" />
+    <fragment
+        android:id="@+id/noneAlcogolFragment"
+        android:name="com.triare.cocktalesproject.fragments.NoneAlcoFragment"
+        android:label="NoneAlcogolFragment" />
+</navigation>

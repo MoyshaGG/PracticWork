@@ -1,0 +1,130 @@
+<resources>
+    <string name="app_name">CocktalesProject</string>
+    <string name="network_error">No internet connection</string>
+
+    <string name="incident">Incident</string>
+
+
+    <string name="text_label_1">Alcohol</string>
+    <string name="text_label_2">Non Alcohol</string>
+
+
+    <string name="registration_lets_register">Let\'s register your profile!</string>
+    <string name="registration_looks_like_first_journey">Look\’s like this is your first journey with cargotrak</string>
+    <string name="registration_start">Start Registration</string>
+    <string name="registration_already_have_profile">Already have a profile?</string>
+    <string name="activity_fill_information_confirm">Confirm</string>
+    <string name="activity_fill_information_empty_field_error">Field can\'t be empty</string>
+    <string name="profile_edited_successfully">Profile updated successfully</string>
+
+    <string name="fill_information_first_name_required">First name<font fgcolor='#DB705F'>*</font></string>
+    <string name="fill_information_last_name_required">Last name<font fgcolor='#DB705F'>*</font></string>
+    <string name="fill_information_mobile_number_required">Mobile Number<font fgcolor='#DB705F'>*</font></string>
+    <string name="fill_information_country_required">Country<font fgcolor='#DB705F'>*</font></string>
+    <string name="fill_information_company_name">Company name</string>
+    <string name="fill_information_driver_license_required">Driver license<font fgcolor='#DB705F'>*</font></string>
+    <string name="fill_information_vehicle_license_required">Vehicle license<font fgcolor='#DB705F'>*</font></string>
+    <string name="fill_information_code">Code</string>
+
+    <string name="first_name_empty">First name cannot be empty</string>
+    <string name="last_name_empty">Last name cannot be empty</string>
+    <string name="mobile_number_empty">Mobile number cannot be empty</string>
+    <string name="country_empty">Country cannot be empty</string>
+    <string name="company_empty">Company cannot be empty</string>
+    <string name="driver_license_empty">Driver license cannot be empty</string>
+    <string name="vehicle_license_empty">Vehicle license cannot be empty</string>
+    <string name="first_name_error">First name should be lass then 50 letters</string>
+    <string name="last_name_error">Last name should be lass then 60 letters</string>
+    <string name="driver_license_error">Driver license should be lass then 50 letters</string>
+    <string name="vehicle_license_error">Vehicle license should be lass then 50 letters</string>
+
+    <string name="login">Log in</string>
+    <string name="enter_your_code">Enter your code</string>
+    <string name="or">or</string>
+    <string name="register_your_profile">Register your profile</string>
+
+    <string name="empty_code_error">Code can\'t be empty</string>
+    <string name="continue_button">Continue</string>
+    <string name="privacy_policy_title">Welcome to cargotrak!</string>
+    <string name="privacy_policy_info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</string>
+    <string name="privacy_policy_link">I have read and agree to the Privacy Policy and Terms &amp; Conditions </string>
+
+    <string name="take_photo">Take photo</string>
+    <string name="make_photo_title">Take a photo of your driver license</string>
+    <string name="make_photo_description">We fully protect your private information as per our user privacy policy. See our Privacy Policy.</string>
+
+    <string name="create_profile_confirm">Confirm</string>
+    <string name="edit_profile_update">Update</string>
+
+    <string name="waiting_validation_title">Please, wait until you\'ll be confirmed by the administrator</string>
+    <string name="waiting_validation_save_code">Save your personal code:</string>
+
+    <string name="tabs_name_deliveries">DELIVERIES</string>
+    <string name="tabs_name_profile">PROFILE</string>
+
+    <string name="delivery_tab_active">Active</string>
+    <string name="delivery_tab_completed">Completed</string>
+
+    <string name="delivery_card_bol_number">BOL Number</string>
+    <string name="delivery_card_awb_number">AWB Number</string>
+    <string name="delivery_card_reference_number">Reference Number</string>
+    <string name="delivery_card_name_of_client">Name of client</string>
+    <string name="delivery_card_delivery_address">Delivery address</string>
+    <string name="delivery_card_estimated_time">Estimated time of arrival</string>
+    <string name="delivery_active_empty">You do not have any active deliveries yet</string>
+    <string name="delivery_completed_empty">You do not have any completed delivery yet</string>
+    <string name="delivery_finish_delivery">Finish delivery</string>
+    <string name="delivery_finished">Finished delivery</string>
+    <string name="delivery_picked_up">Picked up delivery</string>
+    <string name="delivery_pick_up">Pick up delivery</string>
+    <string name="delivery_create_record">Create record</string>
+
+    <string name="delivery_details_title">Delivery</string>
+
+    <string name="accept">Accept</string>
+    <string name="accepted">Accepted</string>
+    <string name="company">Company</string>
+
+    <string name="audio_record_title">Make audio record</string>
+
+    <string name="record">Record</string>
+    <string name="records">Records</string>
+    <string name="record_add_attachment">Add attachment</string>
+    <string name="record_activate_tutorial">Activate the tick box if there is a discrepancy or problem with the cargo</string>
+    <string name="record_notes">Notes<font fgcolor='#DB705F'>*</font></string>
+    <string name="record_make_audio">Make audio record</string>
+    <string name="record_upload_photo">Upload photo</string>
+    <string name="record_pick_up">Pick up record</string>
+    <string name="record_picked_up">Picked up record</string>
+    <string name="record_finished">Finished record</string>
+    <string name="record_add_temperature">Add temperature, Cº</string>
+    <string name="record_save">Save</string>
+    <string name="record_start_delivery">Start delivery</string>
+    <string name="record_finish_delivery">Finish delivery</string>
+    <string name="record_temperature">Temperature</string>
+
+    <string name="cancel">Cancel</string>
+
+    <string name="license_path_error">License photo can\'t be empty</string>
+
+    <string name="something_went_wrong">Something went wrong. Try again later</string>
+
+    <string name="privacy_policy_url">http://datahub.ablefreight.com/Home/PrivacyPolicy</string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="privacy_policy">Privacy Policy</string>
+
+    <string name="logout">Log out</string>
+
+    <string name="permission_not_granted">Permission not granted</string>
+    <string name="permission_not_granted_description">Open Setting -> Permissions -> Select \"Location\" - \"Allow all the time\" and \"Physical activity\" - \"Allow\"</string>
+    <string name="settings">Setting</string>
+    <string name="location_settings">Location settings</string>
+    <string name="location_description">You need to enable location.</string>
+
+    <string name="shared_element_record_item" translatable="false">shared_element_record_item</string>
+    <string name="shared_element_record_details" translatable="false">shared_element_record_details</string>
+    <string name="shared_element_delivery_item" translatable="false">shared_element_delivery_item</string>
+    <string name="shared_element_delivery_details" translatable="false">shared_element_delivery_details</string>
+    <string name="alcah">alcohol description alcohol description alcohol description alcohol description alcohol description alcohol description</string>
+    <string name="alcoholDescription">Слияние ванильного, древесного и медового вкуса с оттенками пряностей и лесных орехов. Послевкусие фруктово-ванильное, с привкусом орехов.Мягкий и сладковатый, с нотками ванили, хереса и сухофруктов</string>
+</resources>
