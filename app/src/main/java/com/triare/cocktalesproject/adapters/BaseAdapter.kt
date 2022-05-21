@@ -13,7 +13,11 @@ import com.triare.cocktalesproject.R
 import com.triare.cocktalesproject.databinding.ItemAlcoholBinding
 import com.triare.cocktalesproject.dvo.AlcoDvo
 
-class NonAlcoAdapter() : ListAdapter<AlcoDvo, NonAlcoAdapter.NonAlcoHolder>(object : DiffUtil.ItemCallback<AlcoDvo>() {
+
+abstract class BaseAdapter(
+    // private val onItemClick: OnItemClick
+) :
+    ListAdapter<AlcoDvo, AlcoAdapter.AlcoHolder>(object : DiffUtil.ItemCallback<AlcoDvo>() {
         override fun areItemsTheSame(
             oldItem: AlcoDvo,
             newItem: AlcoDvo
@@ -25,15 +29,15 @@ class NonAlcoAdapter() : ListAdapter<AlcoDvo, NonAlcoAdapter.NonAlcoHolder>(obje
         ): Boolean = oldItem == newItem
     }) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NonAlcoHolder {
-        return NonAlcoHolder(ItemAlcoholBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlcoHolder {
+        return AlcoHolder(ItemAlcoholBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
-    override fun onBindViewHolder(holder: NonAlcoHolder, position: Int) {
+    override fun onBindViewHolder(holder: AlcoHolder, position: Int) {
         holder.bind(getItem(position), holder.itemView.context)
     }
 
-    inner class NonAlcoHolder(binding: ItemAlcoholBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class AlcoHolder(binding: ItemAlcoholBinding) : RecyclerView.ViewHolder(binding.root) {
         private val descriptionDrink: TextView = binding.descriptionRecycle
         private val drinkImageView: ImageView = binding.imageAlcoholRecycle
 
@@ -48,4 +52,3 @@ class NonAlcoAdapter() : ListAdapter<AlcoDvo, NonAlcoAdapter.NonAlcoHolder>(obje
         }
     }
 }
-//     private val onItemClick: OnItemClick
