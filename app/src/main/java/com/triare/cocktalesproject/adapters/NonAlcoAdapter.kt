@@ -13,39 +13,46 @@ import com.triare.cocktalesproject.R
 import com.triare.cocktalesproject.databinding.ItemAlcoholBinding
 import com.triare.cocktalesproject.dvo.AlcoDvo
 
-class NonAlcoAdapter() : ListAdapter<AlcoDvo, NonAlcoAdapter.NonAlcoHolder>(object : DiffUtil.ItemCallback<AlcoDvo>() {
-        override fun areItemsTheSame(
-            oldItem: AlcoDvo,
-            newItem: AlcoDvo
-        ): Boolean = oldItem.idDrink == newItem.idDrink
-
-        override fun areContentsTheSame(
-            oldItem: AlcoDvo,
-            newItem: AlcoDvo
-        ): Boolean = oldItem == newItem
-    }) {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NonAlcoHolder {
-        return NonAlcoHolder(ItemAlcoholBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-    }
-
-    override fun onBindViewHolder(holder: NonAlcoHolder, position: Int) {
-        holder.bind(getItem(position), holder.itemView.context)
-    }
-
-    inner class NonAlcoHolder(binding: ItemAlcoholBinding) : RecyclerView.ViewHolder(binding.root) {
-        private val descriptionDrink: TextView = binding.descriptionRecycle
-        private val drinkImageView: ImageView = binding.imageAlcoholRecycle
-
-        fun bind(item: AlcoDvo, context: Context) {
-            descriptionDrink.text = item.drink
-            Glide.with(context)
-                .load(item.drinkImage)
-                .error(R.drawable.ic_launcher_background)
-                .into(drinkImageView)
-//            itemView.setOnClickListener {
-//                OnItemClick.onClick(item.idDrink) }
-        }
-    }
-}
-//     private val onItemClick: OnItemClick
+//class NonAlcoAdapter() :
+//    ListAdapter<AlcoDvo, NonAlcoAdapter.NonAlcoHolder>(object : DiffUtil.ItemCallback<AlcoDvo>() {
+//        override fun areItemsTheSame(
+//            oldItem: AlcoDvo,
+//            newItem: AlcoDvo
+//        ): Boolean = oldItem.idDrink == newItem.idDrink
+//
+//        override fun areContentsTheSame(
+//            oldItem: AlcoDvo,
+//            newItem: AlcoDvo
+//        ): Boolean = oldItem == newItem
+//    }) {
+//
+//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NonAlcoHolder {
+//        return NonAlcoHolder(
+//            ItemAlcoholBinding.inflate(
+//                LayoutInflater.from(parent.context),
+//                parent,
+//                false
+//            )
+//        )
+//    }
+//
+//    override fun onBindViewHolder(holder: NonAlcoHolder, position: Int) {
+//        holder.bind(getItem(position), holder.itemView.context)
+//    }
+//
+//    inner class NonAlcoHolder(binding: ItemAlcoholBinding) : RecyclerView.ViewHolder(binding.root) {
+//        private val descriptionDrink: TextView = binding.descriptionRecycle
+//        private val drinkImageView: ImageView = binding.imageAlcoholRecycle
+//
+//        fun bind(item: AlcoDvo, context: Context) {
+//            descriptionDrink.text = item.drink
+//            Glide.with(context)
+//                .load(item.drinkImage)
+//                .error(R.drawable.ic_launcher_background)
+//                .into(drinkImageView)
+////            itemView.setOnClickListener {
+////                OnItemClick.onClick(item.idDrink) }
+//        }
+//    }
+//}
+////     private val onItemClick: OnItemClick

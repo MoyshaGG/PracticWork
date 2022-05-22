@@ -1,6 +1,9 @@
 package com.triare.cocktalesproject.viewmodel
 
 import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.triare.cocktalesproject.data.api.CocktalesRepository
 import com.triare.cocktalesproject.dvo.AlcoDvo
@@ -10,7 +13,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class AlcoViewModel(application: Application) : BaseViewModel(application) {
+class AlcoViewModel(application: Application) : AndroidViewModel(application) {
+    val cocktalesRepository = CocktalesRepository()
+    val _alcoDvoLiveData = MutableLiveData<AlcoResult>()
+    val alcoDvoLiveData: LiveData<AlcoResult> = _alcoDvoLiveData
     init {
         getCurrentData()
         //Item.setOnClickListener{}
@@ -41,7 +47,7 @@ class AlcoViewModel(application: Application) : BaseViewModel(application) {
         }
     }
 
-    override fun getResponseAlco(cocktalesRepository: CocktalesRepository) {
-        return cocktalesRepository.getAlco()
-    }
+//    override fun getResponseAlco(cocktalesRepository: CocktalesRepository) {
+//        return cocktalesRepository.getAlco()
+//    }
 }

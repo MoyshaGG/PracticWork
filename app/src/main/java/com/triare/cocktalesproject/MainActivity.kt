@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     }
     private fun initNavigation() {
         val navController = findNavController(R.id.nav_host_fragment)
-
         binding.navView.apply {
             setupWithNavController(navController)
         }

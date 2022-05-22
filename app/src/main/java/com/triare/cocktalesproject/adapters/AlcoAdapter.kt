@@ -17,9 +17,7 @@ import com.triare.cocktalesproject.dvo.AlcoDvo
 //     fun onClick(appId: Int)
 //}
 
- class AlcoAdapter(
-    // private val onItemClick: OnItemClick
-     ) :
+class AlcoAdapter() :
     ListAdapter<AlcoDvo, AlcoAdapter.AlcoHolder>(object : DiffUtil.ItemCallback<AlcoDvo>() {
         override fun areItemsTheSame(
             oldItem: AlcoDvo,
@@ -33,7 +31,13 @@ import com.triare.cocktalesproject.dvo.AlcoDvo
     }) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlcoHolder {
-        return AlcoHolder(ItemAlcoholBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return AlcoHolder(
+            ItemAlcoholBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: AlcoHolder, position: Int) {
