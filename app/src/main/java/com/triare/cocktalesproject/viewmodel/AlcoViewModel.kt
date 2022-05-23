@@ -13,10 +13,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class AlcoViewModel(application: Application) : AndroidViewModel(application) {
-    val cocktalesRepository = CocktalesRepository()
-    val _alcoDvoLiveData = MutableLiveData<AlcoResult>()
-    val alcoDvoLiveData: LiveData<AlcoResult> = _alcoDvoLiveData
+class AlcoViewModel(application: Application) : BaseViewModel(application) {
+//    val cocktalesRepository = CocktalesRepository()
+//    val _alcoDvoLiveData = MutableLiveData<AlcoResult>()
+//    val alcoDvoLiveData: LiveData<AlcoResult> = _alcoDvoLiveData
     init {
         getCurrentData()
         //Item.setOnClickListener{}

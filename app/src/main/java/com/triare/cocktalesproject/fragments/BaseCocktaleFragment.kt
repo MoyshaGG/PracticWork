@@ -5,24 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
+import by.kirich1409.viewbindingdelegate.CreateMethod
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.triare.cocktalesproject.databinding.FragmentCocktaleBinding
 
-    typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
-    abstract class BaseFragment<B: ViewBinding>(private val inflate: Inflate<B>) : Fragment() {
-        private var _binding: B? = null
-        val binding get() = _binding!!
+abstract class BaseFragment() : Fragment() {
+    protected val binding: FragmentCocktaleBinding by viewBinding(CreateMethod.INFLATE)
 
-        override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-        ): View = inflate.invoke(inflater, container, false).also { _binding = it }.root
-
-
-
-        override fun onDestroy() {
-            super.onDestroy()
-
-            _binding = null
-        }
-    }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View = binding.root
+}
