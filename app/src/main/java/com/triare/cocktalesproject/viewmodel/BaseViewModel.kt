@@ -22,7 +22,7 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
 
     init {
         getCurrentData()
-        //Item.setOnClickListener{}
+       //ClipData.Item.setOnClickListener{}
     }
     private fun getCurrentData() {
 
