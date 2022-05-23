@@ -11,5 +11,5 @@ interface CocktalesApi {
 
     @GET("api/json/v1/1/filter.php?a=Non_Alcoholic") //  www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic
     // @Headers(Content-Type: )
-    suspend fun getNonAlcoList(): Response<NonAlcoListResponse>
+    suspend fun getNonAlcoList(): Response<CocktaleResponse>
 }

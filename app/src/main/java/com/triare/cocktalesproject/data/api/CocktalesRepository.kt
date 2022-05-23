@@ -3,7 +3,7 @@ package com.triare.cocktalesproject.data.api
 class CocktalesRepository(private val alcoSource: AlcoSource = AlcoSource()) {
 
 
-    suspend fun getAlco(): Result<List<AlcoDto>> {
+    suspend fun getAlco(): Result<List<CocktaleDto>> {
         val response = alcoSource.getAlcoholCocktales()
         return if (response.isSuccessful) {
 
@@ -14,7 +14,7 @@ class CocktalesRepository(private val alcoSource: AlcoSource = AlcoSource()) {
         }
 
     }
-    suspend fun getNonAlco(): Result<List<NonAlcoDto>> {
+    suspend fun getNonAlco(): Result<List<CocktaleDto>> {
         val response = alcoSource.getNonAlcoholCocktales()
         return if (response.isSuccessful) {
 

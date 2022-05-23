@@ -8,7 +8,7 @@ class AlcoSource {
     suspend fun getAlcoholCocktales(): Response<CocktaleResponse> {
         return createAlcoApi().getAlcoList()
     }
-    suspend fun getNonAlcoholCocktales():Response<NonAlcoListResponse>
+    suspend fun getNonAlcoholCocktales():Response<CocktaleResponse>
     {
         return createAlcoApi().getNonAlcoList()
     }

@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.triare.cocktalesproject.data.api.CocktaleDto
 import com.triare.cocktalesproject.data.api.CocktalesRepository
 import com.triare.cocktalesproject.dvo.AlcoDvo
 import com.triare.cocktalesproject.ui.alco_cocktales.AlcoResult
@@ -15,19 +16,19 @@ import kotlinx.coroutines.withContext
 
 abstract class BaseViewModel(application: Application) : AndroidViewModel(application) {
 
-     val cocktalesRepository = CocktalesRepository()
+    protected val cocktalesRepository = CocktalesRepository()
      val _alcoDvoLiveData = MutableLiveData<AlcoResult>()
     val alcoDvoLiveData: LiveData<AlcoResult> = _alcoDvoLiveData
 
     init {
-        getCurrentData(response : Result<List<T>>)
+        getCurrentData()
         //Item.setOnClickListener{}
-
     }
-    private fun getCurrentData(response : Result<List<T>>) {
+    private fun getCurrentData() {
+
         viewModelScope.launch {
             try {
-                val response = cocktalesRepository.getAlco()
+                val response = getCocktales(cocktalesRepository)
                 if (response.isSuccess)
                 {
                     _alcoDvoLiveData.value = AlcoResult(drinks = response.getOrDefault(emptyList()).map {
@@ -38,7 +39,6 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
                         )
                     })                }
                 else{
-                    //Result.failure<AlcoResult>())
                     _alcoDvoLiveData.value = AlcoResult(error = response.exceptionOrNull()?.message ?:"SomethingWrong")
                 }
             }
@@ -47,7 +47,5 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
             }
         }
     }
-    abstract fun getResponseAlco(cocktalesRepository: CocktalesRepository)
-
-
+    abstract suspend fun getCocktales(cocktalesRepository: CocktalesRepository):Result<List<CocktaleDto>>
 }
