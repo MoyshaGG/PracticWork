@@ -2,10 +2,9 @@ package com.triare.cocktalesproject.data.api
 
 import com.google.gson.annotations.SerializedName
 
+data class CocktaleDetalesOnId(val drink:String,val drinkImage:String,val idDrink:Int)
 
-data class CocktaleResponse(val drinks: List<CocktaleDto>)
-
-data class CocktaleDto(
+data class CocktaleDetailsDto(
     @SerializedName("strDrink")
     val drink: String,
     @SerializedName("strDrinkThumb")
@@ -13,7 +12,4 @@ data class CocktaleDto(
     @SerializedName("idDrink")
     val idDrink: Int
 )
-
-
-
 
