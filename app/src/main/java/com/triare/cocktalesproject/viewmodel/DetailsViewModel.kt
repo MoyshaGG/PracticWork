@@ -1,6 +1,5 @@
 package com.triare.cocktalesproject.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,7 +11,7 @@ class DetailsViewModel(val cocktaleId: Int) : ViewModel() {
 
     protected val cocktalesRepository = CocktalesRepository()
     val _alcoDvoLiveData = MutableLiveData<CocktaleDetalesOnId>()
-    val alcoDvoLiveData: LiveData<CocktaleDetalesOnId> = _alcoDvoLiveData
+
 
     init {
 
@@ -21,6 +20,7 @@ class DetailsViewModel(val cocktaleId: Int) : ViewModel() {
 
     private fun responseIdDrink() {
         viewModelScope.launch {
+
         val response = cocktalesRepository.getIdCocktales(cocktaleId)
           //  delay(1000)
             if (response.isSuccess)
@@ -28,8 +28,13 @@ class DetailsViewModel(val cocktaleId: Int) : ViewModel() {
                 _alcoDvoLiveData.value = response.getOrDefault(null)
             }
             else{
-                _alcoDvoLiveData.value = CocktaleDetalesOnId(response.exceptionOrNull()?.message ?:"SomethingWrong", idDrink = 11007, drinkImage = "")
+                _alcoDvoLiveData.value = CocktaleDetalesOnId(
+                   // response.exceptionOrNull()?.message ?:"SomethingWrong", idDrink = 11007, drinkImage = ""
+                emptyList()
+                )
             }
+
+
         }
     }
 

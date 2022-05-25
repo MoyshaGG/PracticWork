@@ -14,12 +14,13 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
         viewModel = DetailsViewModel(getId())
-
         val imageAlcohol: ImageView = findViewById(R.id.imageAlcohol)
-        val descriptionAlcohol:TextView = findViewById(R.id.descriptionAlcohol)
+        val nameAlcohol:TextView = findViewById(R.id.nameAlcohol)
+        val descriptionAlco:TextView = findViewById(R.id.descriptionAlcohol)
         viewModel._alcoDvoLiveData.observe(this) {
-            descriptionAlcohol.text = it.drink
-            Glide.with(this).load(it.drinkImage).error(R.drawable.ic_launcher_background)
+            nameAlcohol.text = it.drinks[0].drink
+            descriptionAlco.text = "    "+it.drinks[0].instructions
+            Glide.with(this).load(it.drinks[0].drinkImage).error(R.drawable.ic_launcher_background)
                 .into(imageAlcohol)
         }
 

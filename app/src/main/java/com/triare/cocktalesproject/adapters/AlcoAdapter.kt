@@ -45,13 +45,6 @@ class AlcoAdapter() :
 
     override fun onBindViewHolder(holder: AlcoHolder, position: Int, ) {
         holder.bind(getItem(position), holder.itemView.context)
-//        holder.itemView.setOnClickListener { v ->
-//            val intent = Intent(v.context, DetailsActivity::class.java)
-//
-//            intent.putExtra("drinkId",item.drinkId)
-//            v.context.startActivity(intent)
-//
-//        }
     }
 
     inner class AlcoHolder(binding: ItemAlcoholBinding) : RecyclerView.ViewHolder(binding.root) {

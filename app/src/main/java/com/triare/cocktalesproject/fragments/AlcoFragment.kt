@@ -22,5 +22,4 @@ class AlcoFragment: BaseFragment() {
             it?.let { adapter.submitList(it.drinks) }
         }
     }
-
 }

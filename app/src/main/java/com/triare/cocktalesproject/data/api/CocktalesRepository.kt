@@ -46,4 +46,7 @@ class CocktalesRepository() {
             Result.failure(Throwable(response.message()))
         }
     }
+//    suspend fun getNameCocktales(drink:String):Result<CocktaleInstructionImageDto>
+//    {
+//    }
 }
