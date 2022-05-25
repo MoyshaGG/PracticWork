@@ -20,8 +20,5 @@ interface CocktalesApi {
 
 
 // need to be https://www.thecocktaildb.com/images/ingredients/Lime%20juice-Medium.png
-    //@GET("images/ingredients/"+"-Small.png")
-   // suspend fun getImageIngridients (@Query("i")drink:String) Response<>
-///public Call<UsersApiResponse> getUsers(@Query("per_page") int pageSize,
-///          @Query("page") int currentPage)
+
 }
