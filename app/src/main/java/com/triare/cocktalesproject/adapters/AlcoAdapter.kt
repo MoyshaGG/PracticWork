@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
 import com.triare.cocktalesproject.DetailsActivity
 import com.triare.cocktalesproject.R
 import com.triare.cocktalesproject.databinding.ItemAlcoholBinding
-import com.triare.cocktalesproject.dvo.AlcoDvo
+import com.triare.cocktalesproject.dvo.CocktaleDvo
 
 
 //interface OnItemClick {
@@ -21,15 +21,15 @@ import com.triare.cocktalesproject.dvo.AlcoDvo
 //}
 
 class AlcoAdapter() :
-    ListAdapter<AlcoDvo, AlcoAdapter.AlcoHolder>(object : DiffUtil.ItemCallback<AlcoDvo>() {
+    ListAdapter<CocktaleDvo, AlcoAdapter.AlcoHolder>(object : DiffUtil.ItemCallback<CocktaleDvo>() {
         override fun areItemsTheSame(
-            oldItem: AlcoDvo,
-            newItem: AlcoDvo
+            oldItem: CocktaleDvo,
+            newItem: CocktaleDvo
         ): Boolean = oldItem.idDrink == newItem.idDrink
 
         override fun areContentsTheSame(
-            oldItem: AlcoDvo,
-            newItem: AlcoDvo
+            oldItem: CocktaleDvo,
+            newItem: CocktaleDvo
         ): Boolean = oldItem == newItem
     }) {
 
@@ -51,7 +51,7 @@ class AlcoAdapter() :
         private val descriptionDrink: TextView = binding.descriptionRecycle
         private val drinkImageView: ImageView = binding.imageAlcoholRecycle
 
-        fun bind(item: AlcoDvo, context: Context) {
+        fun bind(item: CocktaleDvo, context: Context) {
             descriptionDrink.text = item.drink
             Glide.with(context)
                 .load(item.drinkImage)

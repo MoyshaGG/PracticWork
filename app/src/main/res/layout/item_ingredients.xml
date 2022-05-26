@@ -25,14 +25,14 @@
 
 
             <ImageView
-                android:id="@+id/imageAlcoholRecycle"
+                android:id="@+id/imageIngredientsRecycle"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:background="@drawable/donwloadimagewhite_24"
                 android:backgroundTint="@color/grey" />
 
             <TextView
-                android:id="@+id/descriptionRecycle"
+                android:id="@+id/descriptionRecycleIngredients"
                 style="@style/TextAppearance.App.Body1"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"

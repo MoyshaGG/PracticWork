@@ -38,7 +38,7 @@ class CocktalesRepository() {
         }
     }
 
-    suspend fun getIdCocktales(id: Int): Result<CocktaleDetalesOnId> {
+    suspend fun getCocktaleById(id: Int): Result<CocktaleDetalesOnId> {
             val response = createAlcoApi().getCocktaleDetails(id)
         return if (response.isSuccessful) {
             Result.success(response.body()!!)
@@ -46,6 +46,8 @@ class CocktalesRepository() {
             Result.failure(Throwable(response.message()))
         }
     }
+
+
 //    suspend fun getNameCocktales(drink:String):Result<CocktaleInstructionImageDto>
 //    {
 //    }

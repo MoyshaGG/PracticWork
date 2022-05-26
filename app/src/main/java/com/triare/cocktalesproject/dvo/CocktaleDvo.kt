@@ -1,8 +1,9 @@
 package com.triare.cocktalesproject.dvo
 
-data class AlcoDvo(
+data class CocktaleDvo(
 
     val drink: String,
     val drinkImage: String,
     val idDrink: Int
+
 )

@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.triare.cocktalesproject.data.api.CocktaleDto
 import com.triare.cocktalesproject.data.api.CocktalesRepository
-import com.triare.cocktalesproject.dvo.AlcoDvo
+import com.triare.cocktalesproject.dvo.CocktaleDvo
 import com.triare.cocktalesproject.ui.alco_cocktales.AlcoResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,7 +31,7 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
                 if (response.isSuccess)
                 {
                     _alcoDvoLiveData.value = AlcoResult(drinks = response.getOrDefault(emptyList()).map {
-                        AlcoDvo(
+                        CocktaleDvo(
                             drink = it.drink,
                             drinkImage = it.drinkImage,
                             idDrink = it.idDrink
