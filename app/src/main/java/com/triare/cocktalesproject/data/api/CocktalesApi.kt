@@ -1,5 +1,6 @@
 package com.triare.cocktalesproject.data.api
 
+import com.triare.cocktalesproject.dvo.IngredientDvo
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -18,7 +19,7 @@ interface CocktalesApi {
     suspend fun getCocktaleDetails  (@Query("i")id:Int): Response<CocktaleDetalesOnId>
 
     @GET ( "api/json/v1/1/lookup.php") //  www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007
-    suspend fun getIngredients(): Response<Ingredients>
+    suspend fun getIngredients(): Response<IngredientDvo>
 
 
 // need to be https://www.thecocktaildb.com/images/ingredients/Lime%20juice-Medium.png
