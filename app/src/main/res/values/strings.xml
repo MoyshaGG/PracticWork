@@ -127,4 +127,5 @@
     <string name="shared_element_delivery_details" translatable="false">shared_element_delivery_details</string>
     <string name="alcah">alcohol description alcohol description alcohol description alcohol description alcohol description alcohol description</string>
     <string name="alcoholDescription">Слияние ванильного, древесного и медового вкуса с оттенками пряностей и лесных орехов. Послевкусие фруктово-ванильное, с привкусом орехов.Мягкий и сладковатый, с нотками ванили, хереса и сухофруктов</string>
+    <string name="back">Back</string>
 </resources>
