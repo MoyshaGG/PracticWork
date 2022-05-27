@@ -11,43 +11,37 @@ import com.bumptech.glide.Glide
 import com.triare.cocktalesproject.R
 import com.triare.cocktalesproject.dvo.IngredientDvo
 
-class IngredientAdapter(var context: Context) : RecyclerView.Adapter<IngredientAdapter.ViewHolder>()
-    {
-        var dataList = emptyList<IngredientDvo>()
+class IngredientAdapter(var context: Context) :
+    RecyclerView.Adapter<IngredientAdapter.ViewHolder>() {
+    var dataList = emptyList<IngredientDvo>()
 
-        internal fun setDataList(dataList:List<IngredientDvo>)
-        {
-            this.dataList = dataList
-        }
-
-        class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            var image: ImageView
-            var desc: TextView
-            init {
-                image = itemView.findViewById(R.id.imageIngredientsRecycle)
-                desc = itemView.findViewById(R.id.descriptionRecycleIngredients)
-            }
-        }
-
-        override fun onCreateViewHolder(
-            parent: ViewGroup,
-            viewType: Int
-        ): IngredientAdapter.ViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_details,parent,false)
-            return ViewHolder(view)
-
-        }
-
-        override fun onBindViewHolder(holder: IngredientAdapter.ViewHolder, position: Int) {
-
-                val data = dataList[position]
-                holder.desc.text = data.name
-                //holder.image.setImageResource(data.)
-            Glide.with(context).load(data.picture).into(holder.image)
-
-
-        }
-
-
-        override fun getItemCount() = dataList.size
+    internal fun setDataList(dataList: List<IngredientDvo>) {
+        this.dataList = dataList
+        notifyDataSetChanged()
     }
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var image: ImageView = itemView.findViewById(R.id.imageIngredientsRecycle)
+        var desc: TextView = itemView.findViewById(R.id.descriptionRecycleIngredients)
+
+    }
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_ingredients, parent, false)
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+
+        val data = dataList[position]
+        holder.desc.text = data.name
+        Glide.with(context).load(dataList[position].picture).error(R.drawable.ic_launcher_background)
+            .into(holder.image)
+    }
+    override fun getItemCount() = dataList.size
+}

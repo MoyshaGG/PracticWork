@@ -5,31 +5,27 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+     >
 
-    <LinearLayout
-        android:id="@id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:padding="25dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            >
 
 
             <ImageView
                 android:id="@+id/imageIngredientsRecycle"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:background="@drawable/donwloadimagewhite_24"
-                android:backgroundTint="@color/grey" />
+                />
 
             <TextView
                 android:id="@+id/descriptionRecycleIngredients"
@@ -37,9 +33,10 @@
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                android:textAlignment="center"
                 android:text="ingredient"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
-        </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

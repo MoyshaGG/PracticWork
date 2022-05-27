@@ -14,11 +14,11 @@ data class CocktaleDetailsDto(
     @SerializedName("strInstructions")
     val instructions:String,
     @SerializedName("strIngredient1")
-    val ingredient1:String,
+    val ingredient1:String?,
     @SerializedName("strIngredient2")
-    val ingredient2:String,
+    val ingredient2:String?,
     @SerializedName("strIngredient3")
-    val ingredient3:String,
+    val ingredient3:String?,
     @SerializedName("strIngredient4")
     val ingredient4:String,
     @SerializedName("strIngredient5")
