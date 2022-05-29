@@ -3,10 +3,10 @@ package com.triare.cocktalesproject.data.api
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CocktalesRepository() {
+class CocktalesRepository {
 
     fun createAlcoApi(): CocktalesApi {
-        var BASE_URL = "https://www.thecocktaildb.com/"
+        val BASE_URL = "https://www.thecocktaildb.com/"
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
 
@@ -39,16 +39,11 @@ class CocktalesRepository() {
     }
 
     suspend fun getCocktaleById(id: Int): Result<CocktaleDetalesOnId> {
-            val response = createAlcoApi().getCocktaleDetails(id)
+        val response = createAlcoApi().getCocktaleDetails(id)
         return if (response.isSuccessful) {
             Result.success(response.body()!!)
         } else {
             Result.failure(Throwable(response.message()))
         }
     }
-
-
-//    suspend fun getNameCocktales(drink:String):Result<CocktaleInstructionImageDto>
-//    {
-//    }
 }

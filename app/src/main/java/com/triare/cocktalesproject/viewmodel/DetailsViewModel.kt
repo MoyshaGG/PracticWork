@@ -95,9 +95,6 @@ class DetailsViewModel(val cocktaleId: Int) : ViewModel() {
                 )
             )
         }
-        else {
-
-        }
             return ingredients
     }
 

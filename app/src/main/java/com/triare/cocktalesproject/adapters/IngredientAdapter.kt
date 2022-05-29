@@ -1,5 +1,6 @@
 package com.triare.cocktalesproject.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ class IngredientAdapter(var context: Context) :
     RecyclerView.Adapter<IngredientAdapter.ViewHolder>() {
     var dataList = emptyList<IngredientDvo>()
 
+    @SuppressLint("NotifyDataSetChanged")
     internal fun setDataList(dataList: List<IngredientDvo>) {
         this.dataList = dataList
         notifyDataSetChanged()
@@ -40,8 +42,10 @@ class IngredientAdapter(var context: Context) :
 
         val data = dataList[position]
         holder.desc.text = data.name
-        Glide.with(context).load(dataList[position].picture).error(R.drawable.ic_launcher_background)
+        Glide.with(context).load(dataList[position].picture)
+            .error(R.drawable.ic_launcher_background)
             .into(holder.image)
     }
+
     override fun getItemCount() = dataList.size
 }

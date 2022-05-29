@@ -15,12 +15,7 @@ import com.triare.cocktalesproject.R
 import com.triare.cocktalesproject.databinding.ItemAlcoholBinding
 import com.triare.cocktalesproject.dvo.CocktaleDvo
 
-
-//interface OnItemClick {
-//     fun onClick(appId: Int)
-//}
-
-class AlcoAdapter() :
+class AlcoAdapter :
     ListAdapter<CocktaleDvo, AlcoAdapter.AlcoHolder>(object : DiffUtil.ItemCallback<CocktaleDvo>() {
         override fun areItemsTheSame(
             oldItem: CocktaleDvo,
@@ -43,7 +38,7 @@ class AlcoAdapter() :
         )
     }
 
-    override fun onBindViewHolder(holder: AlcoHolder, position: Int, ) {
+    override fun onBindViewHolder(holder: AlcoHolder, position: Int) {
         holder.bind(getItem(position), holder.itemView.context)
     }
 
@@ -60,9 +55,9 @@ class AlcoAdapter() :
             itemView.setOnClickListener { v ->
                 val intent = Intent(v.context, DetailsActivity::class.java)
 
-                intent.putExtra("idDrink",item.idDrink)
-                intent.putExtra("drinkImage",item.drinkImage)
-                intent.putExtra("drink",item.drink)
+                intent.putExtra("idDrink", item.idDrink)
+                intent.putExtra("drinkImage", item.drinkImage)
+                intent.putExtra("drink", item.drink)
 
                 v.context.startActivity(intent)
             }

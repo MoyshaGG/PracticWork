@@ -15,13 +15,14 @@ class NoneAlcoFragment: BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(NoneAlcoViewModel::class.java)
+
         val recyclerView: RecyclerView = binding.recycleViewAlco
         recyclerView.layoutManager = LinearLayoutManager(this.context)
         val adapter = AlcoAdapter()
         recyclerView.adapter = adapter
+
         viewModel.alcoDvoLiveData.observe(viewLifecycleOwner) {
             it?.let { adapter.submitList(it.drinks) }
         }
-
     }
 }

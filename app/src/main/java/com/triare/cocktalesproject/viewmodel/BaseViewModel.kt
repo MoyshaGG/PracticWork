@@ -17,7 +17,7 @@ import kotlinx.coroutines.withContext
 abstract class BaseViewModel(application: Application) : AndroidViewModel(application) {
 
     protected val cocktalesRepository = CocktalesRepository()
-     val _alcoDvoLiveData = MutableLiveData<AlcoResult>()
+     private val _alcoDvoLiveData = MutableLiveData<AlcoResult>()
     val alcoDvoLiveData: LiveData<AlcoResult> = _alcoDvoLiveData
 
     init {

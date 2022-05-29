@@ -22,22 +22,22 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        ("БЕБРА")
         viewModel = DetailsViewModel(getId())
         val recyclerView: RecyclerView = binding.recycleViewIngredients
         recyclerView.layoutManager = GridLayoutManager(applicationContext, 2)
         ingredientAdapter = IngredientAdapter(applicationContext)
         recyclerView.adapter = ingredientAdapter
         viewModel._cocktaleDvoLiveData.observe(this) {
-            setTitle(it.name)
-           // binding.nameAlcohol.text = it.name
 
+            title = it.name
+            // binding.nameAlcohol.text = it.name
             binding.descriptionAlcohol.text = "    " + it.instruction
             Glide.with(this).load(it.picture).error(R.drawable.ic_launcher_background)
                 .into(binding.imageAlcohol)
             ingredientAdapter.setDataList(it.ingredients)
         }
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
