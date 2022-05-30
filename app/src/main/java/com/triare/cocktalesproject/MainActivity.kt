@@ -18,7 +18,19 @@ class MainActivity : AppCompatActivity() {
         initNavigation()
         title = "Cocktail List :D"
 
-  }
+    // Идентификатор сборки Crashlytics отсутствует.
+    // Это происходит, когда инструменты Crashlytics отсутствуют
+    // в конфигурации сборки вашего приложения. Ознакомьтесь с
+    // инструкциями по регистрации в Crashlytics и убедитесь,
+    // что у вас есть действующая учетная запись Crashlytics
+    //4
+    //
+    //
+    // throw RuntimeException("Test Crash") // Force a crash
+
+
+
+    }
     private fun initNavigation() {
         val navController = findNavController(R.id.nav_host_fragment)
         binding.navView.apply {

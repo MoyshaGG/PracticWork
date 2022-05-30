@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "321587414578",
+    "project_id": "cocktaleproject",
+    "storage_bucket": "cocktaleproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321587414578:android:abc41020e7308f56f21e2b",
+        "android_client_info": {
+          "package_name": "com.triare.cocktalesproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321587414578-t6imj0gpdbkf1q6ucfo0841l80j1oagg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.triare.cocktalesproject",
+            "certificate_hash": "1ad01b7f86baae8ba0339aa9d7020082e013ca1b"
+          }
+        },
+        {
+          "client_id": "321587414578-nvqo7qiit8b5an4lqlo7vk1ec51dhe6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFwsPmU4YKULlMrCjX1YKar2q-Ao6w_ks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321587414578-nvqo7qiit8b5an4lqlo7vk1ec51dhe6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
