@@ -12,11 +12,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 
 
-abstract class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     companion object {
        val RC_SIGN_IN = 4422
-
     }
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -41,14 +40,11 @@ abstract class LoginActivity : AppCompatActivity() {
     super.onStart()
     var account: GoogleSignInAccount? = null
     account = GoogleSignIn.getLastSignedInAccount(this)
-   // val userDto: UserDto = UserDto(account?.displayName.toString(),account?.photoUrl.toString())
-
     val mainIntent = Intent(this,MainActivity::class.java )
     if (account != null) {
-        //userDto(account.displayName.toString(),account.photoUrl.toString())             /////////////////////
-        Log.i("UserInfo","username =${account.displayName},email =${account.email},picture${account.photoUrl}")
 
         startActivity(mainIntent)
+        Log.i("UserInfo","username =${account.displayName},email =${account.email},picture${account.photoUrl}")
     }
 }
     private fun signIn() {
