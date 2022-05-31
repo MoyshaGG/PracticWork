@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.triare.cocktalesproject.databinding.ActivityMainBinding
 import com.triare.cocktalesproject.model.UserDto
 
@@ -25,6 +26,16 @@ class MainActivity : AppCompatActivity() {
         binding.usernameView.text = "Welcome,  " + user?.name + ".  -_(*_*)_-"
         Glide.with(this).load(user?.photo.toString()).error(R.drawable.ic_launcher_background)
             .into(binding.iconUser)
+        val exitButton = binding.exitView
+
+        exitButton.setOnClickListener{
+            signOut()
+            finish()
+        }
+    }
+    private fun signOut()
+    {
+        FirebaseAuth.getInstance().signOut()
     }
     private fun initNavigation() {
         val navController = findNavController(R.id.nav_host_fragment)

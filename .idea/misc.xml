@@ -11,12 +11,13 @@
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable-v24/rounded_background_primary.xml" value="0.1" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable/alcohol_selector.xml" value="0.207" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable/home_selector.xml" value="0.1265" />
+        <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable/ic_back.xml" value="0.144" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable/ic_baseline_photo_size_select_actual_24.xml" value="0.1265" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1265" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable/nonalcohol_selector.xml" value="0.1265" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_details.xml" value="0.25" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_login.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_splash.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/fragment_alcohol.xml" value="0.38333333333333336" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/fragment_cocktale.xml" value="0.2770448548812665" />
