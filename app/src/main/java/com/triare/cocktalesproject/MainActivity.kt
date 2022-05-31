@@ -1,25 +1,30 @@
 package com.triare.cocktalesproject
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.Glide
 import com.triare.cocktalesproject.databinding.ActivityMainBinding
 import com.triare.cocktalesproject.model.UserDto
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-      binding = ActivityMainBinding.inflate(layoutInflater)
-      val view = binding.root
-      setContentView(view)
-                initNavigation()
-        getUserInfo()
-        title = "Welcome,  "+getUserInfo() +".  -_(*_*)_-"
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        initNavigation()
+        val user = getUserInfo()
+        supportActionBar?.hide()
+        binding.usernameView.text = "Welcome,  " + user?.name + ".  -_(*_*)_-"
+        Glide.with(this).load(user?.photo.toString()).error(R.drawable.ic_launcher_background)
+            .into(binding.iconUser)
     }
     private fun initNavigation() {
         val navController = findNavController(R.id.nav_host_fragment)
@@ -30,9 +35,7 @@ class MainActivity : AppCompatActivity() {
     private fun getUserInfo(): UserDto? {
         val arguments = intent.extras
         return arguments?.getParcelable<UserDto>("user")
-
     }
-
 }
 
 
