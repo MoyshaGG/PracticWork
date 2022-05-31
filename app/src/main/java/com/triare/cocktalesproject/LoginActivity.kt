@@ -1,116 +1,85 @@
 package com.triare.cocktalesproject
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.identity.BeginSignInRequest
-import com.google.android.gms.auth.api.identity.SignInClient
-import com.google.firebase.auth.FirebaseAuth
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.SignInButton
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 
-class LoginActivity : AppCompatActivity() {
+
+abstract class LoginActivity : AppCompatActivity() {
+
     companion object {
-        private const val RC_SIGN_IN = 120
+       val RC_SIGN_IN = 4422
+
     }
-
-    private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
-    private var showOneTapUI = true
-
-    private lateinit var mAuth: FirebaseAuth
-    private lateinit var oneTapClient: SignInClient
-    private lateinit var signInRequest: BeginSignInRequest
-    private lateinit var auth: FirebaseAuth
-    val googleButton: Button = findViewById(R.id.GoogleLoginButton)
-
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        val signInButton = findViewById<SignInButton>(R.id.sign_in_button)
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build()
+        val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+        val account = GoogleSignIn.getLastSignedInAccount(this)
 
-        signInRequest = BeginSignInRequest.builder()
-            .setGoogleIdTokenRequestOptions(
-                BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-                    .setSupported(true)
-                    // Your server's client ID, not your Android client ID.
-                    .setServerClientId(getString(R.string.your_web_client_id))
-                    // Only show accounts previously used to sign in.
-                    .setFilterByAuthorizedAccounts(true)
-                    .build()
-            )
-            .build()
-        mAuth = FirebaseAuth.getInstance()
 
-        googleButton.setOnClickListener {
-            signInRequest
-        }
-//
-//        val googleCredential = oneTapClient.getSignInCredentialFromIntent(parentActivityIntent) // FAILLLLLL
-//        val idToken = googleCredential.googleIdToken
-//        when {
-//            idToken != null -> {
-//                // Got an ID token from Google. Use it to authenticate
-//                // with Firebase.
-//                val firebaseCredential = GoogleAuthProvider.getCredential(idToken, null)
-//                auth.signInWithCredential(firebaseCredential)
-//                    .addOnCompleteListener(this) { task ->
-//                        if (task.isSuccessful) {
-//                            // Sign in success, update UI with the signed-in user's information
-//                            Log.d(TAG, "signInWithCredential:success")
-//                            val user = auth.currentUser
-//                        } else {
-//                            // If sign in fails, display a message to the user.
-//                            Log.w(TAG, "signInWithCredential:failure", task.exception)
-//                        }
-//                    }
-//            }
-//            else -> {
-//                // Shouldn't happen.
-//                Log.d(TAG, "No ID token!")
-//            }
+      signInButton.setOnClickListener{
+          signIn()
+      }
+    }
+//    fun onClick(v: View) {
+//        when (v.getId()) {
+//            R.id.sign_in_button -> signIn()
 //        }
-//
-//       // auth = Firebase.auth
-//
 //    }
-//
-//        override fun onStart() {
-//        super.onStart()
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        val currentUser = auth.currentUser
-//    }
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//
-//        when (requestCode) {
-//            REQ_ONE_TAP -> {
-//                try {
-//                    val credential = oneTapClient.getSignInCredentialFromIntent(data)
-//                    val idToken = credential.googleIdToken
-//                    when {
-//                        idToken != null -> {
-//                            // Got an ID token from Google. Use it to authenticate
-//                            // with Firebase.
-//                            Log.d(TAG, "Got ID token.")
-//                        }
-//                        else -> {
-//                            // Shouldn't happen.
-//                            Log.d(TAG, "No ID token!")
-//                        }
-//                    }
-//                } catch (e: ApiException) {
-//                    // ...
-//                }
-//            }
+    override fun onStart() {
+    super.onStart()
+    var account: GoogleSignInAccount? = null
+    account = GoogleSignIn.getLastSignedInAccount(this)
+   // val userDto: UserDto = UserDto(account?.displayName.toString(),account?.photoUrl.toString())
 
+    val mainIntent = Intent(this,MainActivity::class.java )
+    if (account != null) {
+        //userDto(account.displayName.toString(),account.photoUrl.toString())             /////////////////////
+        Log.i("UserInfo","username =${account.displayName},email =${account.email},picture${account.photoUrl}")
 
+        startActivity(mainIntent)
+    }
+}
+    private fun signIn() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build()
+        val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+        val signInIntent: Intent = mGoogleSignInClient.getSignInIntent()
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
-
-
-
-//    public override fun onStart() {
-//        super.onStart()
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        val currentUser = auth.currentUser
-//        updateUI(currentUser)
-//    }
-
+        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            // The Task returned from this call is always completed, no need to attach
+            // a listener.
+            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleSignInResult(task)
         }
     }
+    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+        try {
+            val account: GoogleSignInAccount = completedTask.getResult(ApiException::class.java)
+
+            // Signed in successfully, show authenticated UI.
+           // updateUI(account)
+        } catch (e: ApiException) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+          //  updateUI(null)
+        }
+    }
+
+}
+

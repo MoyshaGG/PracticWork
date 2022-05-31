@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <Button
-        android:id="@+id/GoogleLoginButton"
-        android:layout_width="215dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="80dp"
-        android:text="Login with Google"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/facebookButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -20,9 +20,9 @@
         android:id="@+id/facebookButton"
         android:layout_width="215dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="80dp"
         android:text="Login with Facebook"
-        app:layout_constraintBottom_toTopOf="@+id/GoogleLoginButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
