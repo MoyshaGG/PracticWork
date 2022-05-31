@@ -10,6 +10,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.triare.cocktalesproject.model.UserDto
 
 
 class LoginActivity : AppCompatActivity() {
@@ -31,23 +32,27 @@ class LoginActivity : AppCompatActivity() {
           signIn()
       }
     }
-//    fun onClick(v: View) {
-//        when (v.getId()) {
-//            R.id.sign_in_button -> signIn()
-//        }
-//    }
+
     override fun onStart() {
     super.onStart()
     var account: GoogleSignInAccount? = null
     account = GoogleSignIn.getLastSignedInAccount(this)
     val mainIntent = Intent(this,MainActivity::class.java )
     if (account != null) {
+       // userDto(account.displayName,account.photoUrl
+        val userInfo:String = account.displayName.toString()
+       // val displayName = "test"
+        val photoUrl:String = account.photoUrl.toString()
+        val userDto: UserDto
+        userDto = UserDto(userInfo,photoUrl)
 
+        mainIntent.putExtra("user",userDto)
         startActivity(mainIntent)
         Log.i("UserInfo","username =${account.displayName},email =${account.email},picture${account.photoUrl}")
     }
 }
     private fun signIn() {
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build()
         val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
         val signInIntent: Intent = mGoogleSignInClient.getSignInIntent()

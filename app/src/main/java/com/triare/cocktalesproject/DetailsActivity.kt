@@ -49,7 +49,6 @@ class DetailsActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
     private fun getId(): Int {
         val arguments = intent.extras
         return arguments?.getInt("idDrink")!!.toInt()

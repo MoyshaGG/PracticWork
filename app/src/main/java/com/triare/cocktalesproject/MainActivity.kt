@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.triare.cocktalesproject.databinding.ActivityMainBinding
+import com.triare.cocktalesproject.model.UserDto
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -15,11 +16,10 @@ class MainActivity : AppCompatActivity() {
       binding = ActivityMainBinding.inflate(layoutInflater)
       val view = binding.root
       setContentView(view)
-      //  title =
                 initNavigation()
-        // throw RuntimeException("Test Crash") // Force a crash for Firebase
+        getUserInfo()
+        title = "Welcome,  "+getUserInfo() +".  -_(*_*)_-"
 
-        //Firebase.auth.signOut()
     }
     private fun initNavigation() {
         val navController = findNavController(R.id.nav_host_fragment)
@@ -27,6 +27,12 @@ class MainActivity : AppCompatActivity() {
             setupWithNavController(navController)
         }
     }
+    private fun getUserInfo(): UserDto? {
+        val arguments = intent.extras
+        return arguments?.getParcelable<UserDto>("user")
+
+    }
+
 }
 
 

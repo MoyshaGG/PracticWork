@@ -16,7 +16,7 @@
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable/nonalcohol_selector.xml" value="0.1265" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_details.xml" value="0.25" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_login.xml" value="0.35104166666666664" />
-        <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_splash.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/fragment_alcohol.xml" value="0.38333333333333336" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/fragment_cocktale.xml" value="0.2770448548812665" />
@@ -26,6 +26,7 @@
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/menu/back_menu.xml" value="0.3140625" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.33" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/menu/dishlist_menu.xml" value="0.33" />
+        <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/menu/toolbae.xml" value="0.28802083333333334" />
         <entry key="..\:/Users/cobra/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/activity_list_item.xml" value="0.3338541666666667" />
       </map>
     </option>

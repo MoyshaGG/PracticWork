@@ -54,7 +54,6 @@ class AlcoAdapter :
                 .into(drinkImageView)
             itemView.setOnClickListener { v ->
                 val intent = Intent(v.context, DetailsActivity::class.java)
-
                 intent.putExtra("idDrink", item.idDrink)
                 intent.putExtra("drinkImage", item.drinkImage)
                 intent.putExtra("drink", item.drink)
