@@ -8,21 +8,19 @@
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
-        android:layout_width="222dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="35dp"
-        app:layout_constraintBottom_toTopOf="@+id/facebookButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/facebookButton"
-        android:layout_width="215dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="80dp"
-        android:text="Login with Facebook"
+        android:layout_width="328dp"
+        android:layout_height="77dp"
+        android:layout_marginBottom="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/kukaracha"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/donwloadimage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
