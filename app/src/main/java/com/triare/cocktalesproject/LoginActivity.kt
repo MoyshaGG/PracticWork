@@ -53,7 +53,6 @@ class LoginActivity : AppCompatActivity() {
             apply()
 
         }
-        val defaultValue = resources.getString(R.string.account_name)
 
 
     }

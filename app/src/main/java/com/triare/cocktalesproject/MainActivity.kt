@@ -1,8 +1,6 @@
 package com.triare.cocktalesproject
 
-
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -15,7 +13,6 @@ import com.triare.cocktalesproject.model.UserDto
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,24 +22,15 @@ class MainActivity : AppCompatActivity() {
         initNavigation()
         val user = getUserInfo()
         supportActionBar?.hide()
-
         binding.usernameView.text = "Welcome,  " + user?.name + ".  -_(*_*)_-"
-
         Glide.with(this).load(user?.photo.toString()).error(R.drawable.ic_launcher_background)
             .into(binding.iconUser)
         val exitButton = binding.exitView
 
         exitButton.setOnClickListener{
-            val loginIntent = Intent(this,LoginActivity::class.java )
-            val exitVal = "exit"
-            loginIntent.putExtra("exit",exitVal)
-            startActivity(loginIntent)
-
             signOut()
+            finish()
         }
-    }
-    private fun SharedPrefData()
-    {
     }
     private fun signOut()
     {
@@ -59,7 +47,5 @@ class MainActivity : AppCompatActivity() {
         return arguments?.getParcelable<UserDto>("user")
     }
 }
-
-
 
 
