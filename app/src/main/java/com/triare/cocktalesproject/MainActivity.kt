@@ -1,12 +1,13 @@
 package com.triare.cocktalesproject
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
-import com.google.firebase.auth.FirebaseAuth
 import com.triare.cocktalesproject.databinding.ActivityMainBinding
 import com.triare.cocktalesproject.model.UserDto
 
@@ -28,13 +29,20 @@ class MainActivity : AppCompatActivity() {
         val exitButton = binding.exitView
 
         exitButton.setOnClickListener{
+            val loginIntent = Intent(this,LoginActivity::class.java )
             signOut()
+            startActivity(loginIntent)
             finish()
         }
     }
-    private fun signOut()
-    {
-        FirebaseAuth.getInstance().signOut()
+    private fun signOut() {
+        val sharedPref =
+            getSharedPreferences(SplashActivity.preferences, Context.MODE_PRIVATE) ?: return
+        with(sharedPref.edit()) {
+            putString(getString(R.string.account_name), null)
+            putString(getString(R.string.account_photo), null)
+            apply()
+        }
     }
     private fun initNavigation() {
         val navController = findNavController(R.id.nav_host_fragment)
