@@ -28,13 +28,11 @@ class DetailsActivity : AppCompatActivity() {
         ingredientAdapter = IngredientAdapter(applicationContext)
         recyclerView.adapter = ingredientAdapter
         viewModel._cocktaleDvoLiveData.observe(this) {
-
             title = it.name
             // binding.nameAlcohol.text = it.name
             binding.descriptionAlcohol.text = "    " + it.instruction
             Glide.with(this).load(it.picture).error(R.drawable.ic_launcher_background)
                 .into(binding.imageAlcohol)
-
             ingredientAdapter.setDataList(it.ingredients)
         }
     }

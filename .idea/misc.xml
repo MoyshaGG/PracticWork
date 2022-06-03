@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/cobra/.gradle/caches/transforms-3/e20a89b51dcef28d792f1b504c05e1db/transformed/facebook-share-4.42.0/res/drawable/com_facebook_button_send_background.xml" value="0.1" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable-v24/bottom_sheet_dialog.xml" value="0.1" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable-v24/ic_back_toolbar_black.xml" value="0.1" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable-v24/ic_back_toolbar_white.xml" value="0.1985" />
@@ -16,7 +17,7 @@
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1265" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/drawable/nonalcohol_selector.xml" value="0.1265" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_details.xml" value="0.25" />
-        <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/activity_splash.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/cobra/AndroidStudioProjects/CocktalesProject/app/src/main/res/layout/fragment_alcohol.xml" value="0.38333333333333336" />

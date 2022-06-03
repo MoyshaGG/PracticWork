@@ -17,5 +17,8 @@
     <color name="green_middle">#9DB1A8</color>
     <color name="blue_middle">#26436AB3</color>
 
+    <color name="com_facebook_button_background_color_focused_disabled">#3C5A99</color>
+    <color name="com_facebook_button_background_color_focused">#3C5A99</color>
+    <color name="com_facebook_button_border_color_focused">#3C5A99</color>
     <color name="error">@android:color/holo_red_light</color>
 </resources>

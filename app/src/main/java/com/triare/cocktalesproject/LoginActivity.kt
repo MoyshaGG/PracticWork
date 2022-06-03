@@ -1,9 +1,13 @@
 package com.triare.cocktalesproject
 
+import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.facebook.CallbackManager
+import com.facebook.FacebookSdk
+import com.facebook.appevents.AppEventsLogger
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -24,6 +28,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         val signInButton = findViewById<SignInButton>(R.id.sign_in_button)
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(Application())
+
+        val callbackManager = CallbackManager.Factory.create()
+
+
         val gso =
             GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build()
         //   val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
@@ -43,6 +53,7 @@ class LoginActivity : AppCompatActivity() {
             apply()
         }
     }
+
     private fun signIn() {
         val gso =
             GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build()
