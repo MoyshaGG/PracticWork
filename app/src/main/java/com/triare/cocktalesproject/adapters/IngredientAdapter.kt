@@ -43,7 +43,7 @@ class IngredientAdapter(var context: Context) :
         val data = dataList[position]
         holder.desc.text = data.name
         Glide.with(context).load(dataList[position].picture)
-            .error(R.drawable.ic_launcher_background)
+            .error(R.drawable.donwloadimage)
             .into(holder.image)
     }
 

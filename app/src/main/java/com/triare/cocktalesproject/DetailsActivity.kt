@@ -31,7 +31,7 @@ class DetailsActivity : AppCompatActivity() {
             title = it.name
             // binding.nameAlcohol.text = it.name
             binding.descriptionAlcohol.text = "    " + it.instruction
-            Glide.with(this).load(it.picture).error(R.drawable.ic_launcher_background)
+            Glide.with(this).load(it.picture).error(R.drawable.donwloadimage)
                 .into(binding.imageAlcohol)
             ingredientAdapter.setDataList(it.ingredients)
         }

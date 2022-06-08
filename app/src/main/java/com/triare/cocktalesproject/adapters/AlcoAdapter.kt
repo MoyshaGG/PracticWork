@@ -50,7 +50,7 @@ class AlcoAdapter :
             descriptionDrink.text = item.drink
             Glide.with(context)
                 .load(item.drinkImage)
-                .error(R.drawable.ic_launcher_background)
+                .error(R.drawable.donwloadimage)
                 .into(drinkImageView)
             itemView.setOnClickListener { v ->
                 val intent = Intent(v.context, DetailsActivity::class.java)

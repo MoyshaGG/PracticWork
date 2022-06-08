@@ -1,14 +1,13 @@
 package com.triare.cocktalesproject
 
+import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
-import com.facebook.FacebookSdk
+import com.facebook.*
 import com.facebook.appevents.AppEventsLogger
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
@@ -29,11 +28,14 @@ class LoginActivity : AppCompatActivity() {
     companion object {
         val RC_SIGN_IN = 4422
         val  EMAIL = "email"
+        const val preferences = "sharedPref"
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        supportActionBar?.hide()
         val signInButton = findViewById<SignInButton>(R.id.sign_in_button)
         FacebookSdk.sdkInitialize(getApplicationContext())
         val callbackManager = CallbackManager.Factory.create()
@@ -42,17 +44,28 @@ class LoginActivity : AppCompatActivity() {
         val loginButton: LoginButton = findViewById(R.id.login_facebook_button)
         loginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {
-                    val mainIntent = Intent(applicationContext, MainActivity::class.java)
+
+                val mainIntent = Intent(applicationContext, MainActivity::class.java)
+                val accessToken: AccessToken = AccessToken.getCurrentAccessToken()!!
+                val request = GraphRequest.newMeRequest(
+                    accessToken
+                ) { obj, response ->
+                    val fullname = obj?.getString("name").toString()
+                    val url = obj?.getJSONObject("picture")?.getJSONObject("data")?.getString("url")
+                        .toString()
+                    saveUser(fullname, url)
+                    Log.i("BEB loginActivity", "( name = ${fullname}), ( Url = ${url})")
                     startActivity(mainIntent)
                     finish()
+                }
+                val parameters = Bundle()
+                parameters.putString("fields", "id,name,link,picture")
+                request.parameters = parameters
+                request.executeAsync()
             }
-
             override fun onCancel() {
-                // App code
             }
-
             override fun onError(exception: FacebookException) {
-                // App code
             }
         })
 
@@ -60,36 +73,13 @@ class LoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener()
         {
             LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"))
-
-
-
         }
 
 
         signInButton.setOnClickListener {
             signIn()
-            saveUser()
+
         }
-
-
-//        LoginManager.getInstance().registerCallback(callbackManager,
-//            object : FacebookCallback<LoginResult> {
-//                override fun onSuccess(result: LoginResult) {
-//                    val mainIntent = Intent(applicationContext, MainActivity::class.java)
-//                    startActivity(mainIntent)
-//                    finish()
-//                }
-//
-//                override fun onCancel() {
-//                    Toast.makeText(applicationContext,"onCancel", Toast.LENGTH_LONG).show()
-//
-//                }
-//
-//                override fun onError(exception: FacebookException) {
-//                    Toast.makeText(applicationContext,"onError", Toast.LENGTH_LONG).show()
-//
-//                }
-//            })
 
 
     }
@@ -104,14 +94,20 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-    fun saveUser() {
-        val sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return
-        var account: GoogleSignInAccount? = null
-        account = GoogleSignIn.getLastSignedInAccount(this)
+    fun saveUser(name: String, photo: String) {
+
+        val sharedPref = getSharedPreferences(preferences,Context.MODE_PRIVATE) ?: return
+        //var account: GoogleSignInAccount? = null
+        //account = GoogleSignIn.getLastSignedInAccount(this)
         with(sharedPref.edit()) {
-            putString(getString(R.string.account_name), account?.displayName.toString())
-            putString(getString(R.string.account_photo), account?.photoUrl.toString())
+            putString(getString(R.string.account_name), name)
+            putString(getString(R.string.account_photo), photo)
             apply()
+            Log.i(
+                "BEB loginActivitySaveUser",
+                "( name = ${name}), ( Url = ${photo})"
+            )
+
         }
     }
 
@@ -121,25 +117,6 @@ class LoginActivity : AppCompatActivity() {
         val signInIntent: Intent = mGoogleSignInClient.getSignInIntent()
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
-    fun saveUser(name:String,photo:String) {
-        val sharedPref = getSharedPreferences(SplashActivity.preferences,Context.MODE_PRIVATE) ?: return
-        with(sharedPref.edit()) {
-            putString(getString(R.string.account_name), name)
-            putString(getString(R.string.account_photo), photo)
-            apply()
-        }
-    }
-
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        callbackManager.onActivityResult(requestCode,resultCode,data)
-//        super.onActivityResult(requestCode, resultCode, data)
-//
-//        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-//        if (requestCode == RC_SIGN_IN) {
-//            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
-//            handleSignInResult(task)
-//        }
-//    }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
@@ -147,6 +124,7 @@ class LoginActivity : AppCompatActivity() {
             val mainIntent = Intent(this, MainActivity::class.java)
             val account: GoogleSignInAccount = completedTask.getResult(ApiException::class.java)
             saveUser(account.displayName.toString(), account.photoUrl.toString())
+
             val userDto = UserDto(account.displayName.toString(), account.photoUrl.toString())
             mainIntent.putExtra("user", userDto)
             startActivity(mainIntent)
